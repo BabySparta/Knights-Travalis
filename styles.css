@@ -107,6 +107,10 @@ body {
     background-color: rgb(184, 184, 184);
 }
 
+.active {
+    background-color: rgb(184, 184, 184);
+}
+
 /* Board */
 
 .boardCont {
@@ -190,4 +194,17 @@ body {
 .cell {
     width: 84px;
     height: 84px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hoverIcon, .placedIcon {
+    width: 72px;
+    height: 72px;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
