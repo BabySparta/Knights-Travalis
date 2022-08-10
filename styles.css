@@ -14,6 +14,10 @@ body {
     background-color: rgb(204, 204, 204);
 }
 
+:root {
+    --boardColor: rgb(136, 107, 60);
+}
+
 /* Header */
 
 .header {
@@ -34,28 +38,156 @@ body {
     height: 4.5rem;
 }
 
+/* Content */
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+
 /* Controls */
+
+
+.controlWrap {
+    display: flex;
+    flex-direction: column;
+    width: 15vw;
+    height: 720px;
+    justify-content: start;
+    align-items: center;
+    gap: 3rem;
+    margin-right: 12px;
+    margin-top: 12px;
+
+}
+
+.controlTitle {
+    font-family: nordic, sans-serif;
+    font-size: 3.5rem;
+    border-bottom: 2px solid black;
+    width: 14rem;
+    text-align: center;
+}
+
+.controls {
+    width: 15vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    gap: 56px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn {
+    width: 14rem;
+    height: 3rem;
+    font-family: nordic, sans-serif;
+    background-color: rgb(204, 204, 204);
+    outline: none;
+    border: 2px solid var(--boardColor);
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: 0.2s ease-in-out;
+}
+
+.btn:hover {
+    background-color: rgb(184, 184, 184);
+}
 
 /* Board */
 
+.boardCont {
+    display: grid; 
+    grid-template-rows: calc(84px * 8), 48px;
+    grid-template-columns: 48px, calc(84px * 8);
+    width: calc((84px * 8) + 48px);
+    height: calc((84px * 8) + 48px);
+    outline: 8px solid var(--boardColor);
+    border-radius: 8px;
+    outline-offset: -1px;
+    overflow: hidden;
+}
+
+.yLabel {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    background-color: var(--boardColor);
+    width: 48px;
+}
+
+.corner {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    background-color: var(--boardColor);
+    width: 48px;
+    height: 48px;
+}
+
+.xLabel {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    display: flex;
+    background-color: var(--boardColor);
+    height: 48px;
+}
+
+.axis {
+    display: flex;
+    box-sizing: border-box;
+    padding: 8px;
+    font-family: nordic, sans-serif;
+    font-size: 2rem;
+}
+
+.yLabel .axis {
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 84px;
+}
+
+.xLabel .axis {
+    justify-content: center;
+    align-items: flex-start;
+    width: 84px;
+    height: 48px;
+}
+
 .board {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
     display: grid;
     grid-template-rows: repeat(8, 1fr);
-    grid-template-columns: repeat(8, 1fr);
-    width: calc(64px * 8);
-    height: calc(64px * 8);
+    grid-template-columns: 1fr;
+    width: calc(84px * 8);
+    height: calc(84px * 8);
 }
 
-.board :nth-child(2n) {
-    background-color: black;
+.row {
+    display: flex;
 }
 
-.board :nth-child(2n + 1) {
-    background-color: white;
+.white {
+    background-color: whitesmoke;
+}
+.black {
+    background-color: var(--boardColor);
 }
 
 .cell {
-    width: 64px;
-    height: 64px;
-    border: 2px solid black;
+    width: 84px;
+    height: 84px;
 }
