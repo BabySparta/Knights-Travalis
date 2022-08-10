@@ -1,0 +1,61 @@
+@font-face {
+    font-family: nordic;
+    src: url(resources/Norse-Bold.otf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(204, 204, 204);
+}
+
+/* Header */
+
+.header {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.title {
+    font-size: 5.5rem;
+    font-family: nordic, sans-serif;
+}
+
+.logo {
+    width: 4.5rem;
+    height: 4.5rem;
+}
+
+/* Controls */
+
+/* Board */
+
+.board {
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+    width: calc(64px * 8);
+    height: calc(64px * 8);
+}
+
+.board :nth-child(2n) {
+    background-color: black;
+}
+
+.board :nth-child(2n + 1) {
+    background-color: white;
+}
+
+.cell {
+    width: 64px;
+    height: 64px;
+    border: 2px solid black;
+}
