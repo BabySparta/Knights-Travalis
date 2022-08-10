@@ -54,7 +54,6 @@ const knightsTravalis = (start, finish) => {
         const enqueue = currSqare.getMoves();
         enqueue.forEach(move => move.setPredecessor(currSqare));
         queue.push(...enqueue);
-        console.log('hi');
     }
 
     const path = [target];
