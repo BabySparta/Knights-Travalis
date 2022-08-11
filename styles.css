@@ -42,9 +42,27 @@ body {
 
 .content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 90vh;
+}
+
+.mainWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    height: 80vh;
+}
+
+.info {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: nordic, sans-serif;
+    font-size: 2rem;
 }
 
 
