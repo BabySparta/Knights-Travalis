@@ -56,15 +56,27 @@ body {
     height: 80vh;
 }
 
-.info {
+.infoWrap {
     height: 10vh;
     display: flex;
+    flex-direction:column;
     justify-content: center;
     align-items: center;
-    font-family: nordic, sans-serif;
-    font-size: 2rem;
+    gap: 16px;
 }
 
+.info {
+    font-family: nordic, sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    height: 50%;
+}
+
+.infoSub {
+    font-family: nordic, sans-serif;
+    font-size: 1.7rem;
+    height: 50%;
+}
 
 /* Controls */
 
@@ -200,6 +212,7 @@ body {
 
 .row {
     display: flex;
+    position: relative;
 }
 
 .white {
@@ -208,14 +221,15 @@ body {
 .black {
     background-color: var(--boardColor);
 }
-
+.black.visited, .white.visited {
+    background-color: rgb(73, 59, 35);
+}
 .cell {
     width: 84px;
     height: 84px;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
 }
 
 .hoverIcon, .placedIcon {
@@ -231,4 +245,45 @@ body {
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+    z-index: 100;
+}
+
+@keyframes uTwoLOne {
+    60% {transform: translateY(-168px)}
+    100% {transform:translateX(-84px) translateY(-168px);}
+}
+
+@keyframes uTwoROne {
+    60% {transform: translateY(-168px)}
+    100% {transform:translateX(84px) translateY(-168px);}
+}
+
+@keyframes uOneLTwo {
+    60% {transform: translateX(-168px);}
+    100% {transform:translateX(-168px) translateY(-84px);}
+}
+
+@keyframes uOneRTwo {
+    60% {transform: translateX(168px);}
+    100% {transform:translateX(168px) translateY(-84px);}
+}
+
+@keyframes dTwoLOne {
+    60% {transform: translateY(168px)}
+    100% {transform:translateX(-84px) translateY(168px);}
+}
+
+@keyframes dTwoROne {
+    60% {transform: translateY(168px)}
+    100% {transform:translateX(84px) translateY(168px);}
+}
+
+@keyframes dOneLTwo {
+    60% {transform: translateX(-168px);}
+    100% {transform:translateX(-168px) translateY(84px);}
+}
+
+@keyframes dOneRTwo {
+    60% {transform: translateX(168px);}
+    100% {transform:translateX(168px) translateY(84px);}
 }
