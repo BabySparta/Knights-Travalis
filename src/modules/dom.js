@@ -48,7 +48,7 @@ const placeThing = (cell, type) => {
     const end = document.querySelector('.end');
     if (knight.classList.contains('active') || type === 'knight') {
         const prevK = document.querySelector('.placedKnight');
-        if (prevK) prevK.parentElement.textContent = '';
+        if (prevK) prevK.parentElement.removeChild(prevK);
         cell.textContent = '';
         const knightImg = document.createElement('img');
         knightImg.classList.add('placedIcon');
@@ -58,7 +58,7 @@ const placeThing = (cell, type) => {
     }
     if (end.classList.contains('active') || type === 'end') {
         const prevE = document.querySelector('.placedEnd');
-        if (prevE) prevE.parentElement.textContent = '';
+        if (prevE) prevE.parentElement.removeChild(prevE);
         cell.textContent = '';
         const endImg = document.createElement('img');
         endImg.classList.add('placedIcon');
