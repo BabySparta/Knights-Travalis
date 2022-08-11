@@ -287,3 +287,15 @@ body {
     60% {transform: translateX(168px);}
     100% {transform:translateX(168px) translateY(84px);}
 }
+
+/* Footer */
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    font-family: nordic, sans-serif;
+    font-size: 1.3rem;
+    text-align: center;
+    padding-bottom: 4px;
+}
