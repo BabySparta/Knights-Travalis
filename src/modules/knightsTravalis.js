@@ -46,7 +46,7 @@ const square = (x,y) => {
 const knightsTravalis = (start, finish) => {
     const origin = square(...start);
     const target = square(...finish);
-
+    
     const queue = [origin];
     while (!queue.includes(target)) {
         const currSqare = queue.shift();
