@@ -1,5 +1,6 @@
 import genBoard from "./seeBoard";
 import knightsTravalis from "./knightsTravalis";
+import { clear } from "console";
 
 export default function init() {
     genBoard();
@@ -89,6 +90,7 @@ const activateButtons = () => {
         placeEnd.classList.add('active');
     });
     knightRandom.addEventListener('click', () => {
+        clearActive();
         const row = Math.floor(Math.random() * 8);
         const col = Math.floor(Math.random() * 8);
 
@@ -99,6 +101,7 @@ const activateButtons = () => {
         placeThing(cell, 'knight');   
     });
     endRandom.addEventListener('click', () => {
+        clearActive();
         const row = Math.floor(Math.random() * 8);
         const col = Math.floor(Math.random() * 8);
 
@@ -110,6 +113,7 @@ const activateButtons = () => {
         placeThing(cell, 'end');
     });
     travail.addEventListener('click', () => {
+        clearActive();
         const knight = document.querySelector('.placedKnight');
         const end = document.querySelector('.placedEnd');
         const infoTxt = document.querySelector('.info');
@@ -143,4 +147,26 @@ const coordsAndRun = (start, end) => {
     const endX = parseInt(endCell.dataset.x);
     const endY = parseInt(endCell.dataset.y);
     knightsTravalis([knightX, knightY], [endX, endY]);
+    animKnight(knightsTravalis([knightX, knightY], [endX, endY]));
+}
+
+/* Knight Animation */ 
+
+const animKnight = (moves) => {
+    for (let i = 1; i < moves.length; i++) {
+        const currMove = moves[i];
+        const currX= currMove[1];
+        const currY = currMove[4];
+
+        const newCell = document.querySelector(`[data-x="${currX}"][data-y="${currY}"]`);
+        const knightImg = document.createElement('img');
+        knightImg.classList.add('placedIcon');
+        knightImg.classList.add('placedKnight');
+        knightImg.src = "./resources/knight.svg";
+        setTimeout(function() {
+            const prevK = document.querySelector('.placedKnight');
+            if (prevK) prevK.parentElement.removeChild(prevK);
+            newCell.appendChild(knightImg);
+        }, 1000*i);
+    }
 }

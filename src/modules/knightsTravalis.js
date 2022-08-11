@@ -24,15 +24,13 @@ const square = (x,y) => {
     };
 
     const newMove = (xOff, yOff) => {
-        const [x, y] = [xPos + xOff, yPos + yOff];
-        if (0 <= x < 8 && 0 <= y < 8) {
-            return square(x, y);
+        const [newX, newY] = [xPos + xOff, yPos + yOff];
+        if (0 <= newX && newX < 8 && 0 <= newY && newY < 8) {
+            return square(newX, newY);
         }
     }
 
     const name = () => `[${x}, ${y}]`
-
-
 
     if (squareStorage.has(name())) {
         return squareStorage.get(name());
@@ -44,9 +42,11 @@ const square = (x,y) => {
 }
 
 const knightsTravalis = (start, finish) => {
+    squareStorage.clear();
+
     const origin = square(...start);
     const target = square(...finish);
-    
+
     const queue = [origin];
     while (!queue.includes(target)) {
         const currSqare = queue.shift();
@@ -67,7 +67,8 @@ const knightsTravalis = (start, finish) => {
     console.log('The moves are:')
     path.forEach(move => {
         console.log(move.name());
-    })
+    });
+    return path.map(move => move.name());
 };
 
 export default knightsTravalis;
